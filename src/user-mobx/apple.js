@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
+import '../styles/appleBasket.scss';
+import '../styles/appleItem.scss';
 
 @observer
 class AppleItem extends Component {
@@ -37,11 +39,12 @@ class Apple extends Component {
         );
       }
     });
-    if (!data.length) return <div>its empth</div>;
+    if (!data.length) return <div>没有苹果……</div>;
     return data;
   }
+
   render() {
-    let { status } = this.props.store;
+    let { status, pickApple } = this.props.store;
     let {
       appleNow: { quantity: notEatenQuantity, weight: notEatenWeight },
       appleEaten: { quantity: EatenQuantity, weight: EatenWeight }
@@ -67,9 +70,9 @@ class Apple extends Component {
 
         <div className="appleList">{this.getAppleItem()}</div>
 
-        {/* <div className="btn-div">
-                <button  className={isPicking ? 'disabled' : ''}  onClick={() => pickApple() } >{buttonText}</button>
-            </div> */}
+        <div className="btn-div">
+            <button onClick={() => pickApple() } >摘苹果</button>
+        </div>
       </div>
     );
   }

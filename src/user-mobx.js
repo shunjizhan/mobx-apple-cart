@@ -23,6 +23,7 @@ class appleStore {
       isEaten: false
     }
   ];
+
   @computed
   get status() {
     let status = {
@@ -36,12 +37,13 @@ class appleStore {
       }
     };
     this.apples.forEach(apple => {
-      let selected = apple.isEaten ? 'appleNow' : 'appleEaten';
-      status[selected].quantity++;
-      status[selected].weight += apple.weight;
+      let type = apple.isEaten ? 'appleEaten' : 'appleNow';
+      status[type].quantity++;
+      status[type].weight += apple.weight;
     });
     return status;
   }
+
   @action
   eatApple = appleId => {
     this.apples.forEach((apple, index) => {
@@ -50,6 +52,16 @@ class appleStore {
       }
     });
   };
+
+  @action
+  pickApple = () => {
+    const maxId = Math.max(...this.apples.map(a => a.id));
+    this.apples.push({
+      id: maxId + 1,
+      weight: Math.floor(200 + Math.random() * 100),
+      isEaten: false
+    });
+  }
 }
 
 const store = new appleStore();

@@ -29,4 +29,6 @@ function buildConfig(wantedEnv) {
   return config;
 }
 
+// console.log(buildConfig(env).module.loaders);
+
 module.exports = buildConfig(env);

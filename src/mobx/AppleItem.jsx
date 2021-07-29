@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/appleItem.scss';
+import '../styles/appleItem.css';
 import {observer} from 'mobx-react';
 
 
