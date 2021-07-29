@@ -3,11 +3,10 @@
 
 An apple cart app with React + Mobx for learning purpose.
 
-技术栈:
-- React.js with ES6
-- Redux/Mobx for predictable state
-- Redux-thunk for middleware
-- immutable for persistent data
-- fetch for request / jQuery for ajax
-- Webpack for building tool
-
+### 运行
+```
+git clone git@github.com:shunjizhan/mobx-apple-cart.git
+cd mobx-apple-cart
+yarn
+yarn serve
+```
